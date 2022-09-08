@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<nav>
+		<a href="/products/edit/<%= product._id %>">Update Product</a>
+		<br>
+		<a href="/products">Back to Products Index</a>
+		<br>
+		<a href="/products/buy/<%= product._id %>">Buy</a>
+		<br>
+		<a href="/products/delete/<%= product._id %>">Delete</a>
+	</nav>
+	<h1>
+		<%=product.name%>
+	</h1>
+	description:<%=product.description%>
+		<br />
+		<img width="250px" height="250px" src=<%=product.img%>>
+		<br>
+
+		<!-- Handle when the qty is out of stock -->
+		<% if (product.qty <= 0) { %>
+				<p> OUT OF STOCK </p>
+			<%} else { %>
+				<p>quantitiy: <%=product.qty%></p>
+			<% } %>
+
+		
+</body>
+
+</html>
